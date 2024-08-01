@@ -17,9 +17,7 @@ const ProductListing = () => {
     setSelectedSortingOrder(null);
   };
 
-  const { data, loading, error } = useFetch(
-    "https://7a7136dc-bde6-42fa-8bc2-3a224d04aefb-00-226vkltlqk31c.pike.replit.dev/products",
-  );
+  const { data, loading, error } = useFetch("http://localhost:3000/products");
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
@@ -39,7 +37,7 @@ const ProductListing = () => {
       (product) =>
         product.productPrice <= price &&
         (category.length === 0 || category.includes(product.genderType)) &&
-        (selectedRating === null || product.productRating >= selectedRating),
+        (selectedRating === null || product.productRating >= selectedRating)
     )
     .sort((a, b) => {
       if (selectedSortingOrder === "asc") {
