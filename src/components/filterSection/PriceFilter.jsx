@@ -1,7 +1,15 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getSelctedPrice } from "../../features/filterSlice";
+import { useDispatch } from "react-redux";
 const PriceFilter = () => {
-  const handlePriceChange = (event) => {};
+  const dispatch = useDispatch();
+  const [price, setPrice] = useState(1000);
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+  useEffect(() => {
+    dispatch(getSelctedPrice(price));
+  }, [price]);
   return (
     <>
       <section>
@@ -13,6 +21,8 @@ const PriceFilter = () => {
           max="2000"
           step="100"
           id="price"
+          value={price}
+          onChange={handlePriceChange}
         />
       </section>
     </>

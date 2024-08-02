@@ -7,38 +7,38 @@ const HeroSection = () => {
       <div className="container content-center mt-3">
         <div className="row align-items-center">
           <div className="col">
-            <NavLink to="/productListing">
+            <NavLink to="/products/category/male">
               <img
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Male\nCollection"
-                alt="Women Collection"
+                alt="male Cllection"
               />
             </NavLink>
           </div>
           <div className="col">
-            <NavLink to="/productListing">
+            <NavLink to="/products/category/female">
               <img
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Women\nCollection"
-                alt="Women Collection"
+                alt="female Collection"
               />
             </NavLink>
           </div>
           <div className="col">
-            <NavLink to="/productListing">
+            <NavLink to="/products/category/kids">
               <img
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Kids\nCollection"
-                alt="Women Collection"
+                alt="kids Collection"
               />
             </NavLink>
           </div>
           <div className="col">
-            <NavLink to="/productListing">
+            <NavLink to="/products/category/couple">
               <img
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Couple\nCollection"
-                alt="Women Collection"
+                alt="Couple Collection"
               />
             </NavLink>
           </div>

@@ -1,51 +1,55 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { getSelectedRating } from "../../features/filterSlice";
+import { useDispatch } from "react-redux";
 const RatingFilter = () => {
-  const handleRatingChange = (event) => {};
+  const dispatch = useDispatch();
+  const [rating, setRating] = useState("");
+  const handleRatingChange = (e) => {
+    setRating(e.target.value);
+  };
+  useEffect(() => {
+    dispatch(getSelectedRating(rating));
+  }, [rating]);
   return (
     <section>
       <h5>RatingFilter</h5>
       <div>
         <label className="form-check-label">
           <input
-            // onChange={handleRatingChange}
+            onChange={handleRatingChange}
             type="radio"
             name="rating"
             value="4"
-            // checked={selectedRating === 4}
           />
           4 Stars and above
         </label>
         <br />
         <label className="form-check-label">
           <input
-            // onChange={handleRatingChange}
+            onChange={handleRatingChange}
             type="radio"
             name="rating"
             value="3"
-            // checked={selectedRating === 3}
           />
           3 Stars and above
         </label>
         <br />
         <label className="form-check-label">
           <input
-            // onChange={handleRatingChange}
+            onChange={handleRatingChange}
             type="radio"
             name="rating"
             value="2"
-            // checked={selectedRating === 2}
           />
           2 Stars and above
         </label>
         <br />
         <label className="form-check-label">
           <input
-            // onChange={handleRatingChange}
+            onChange={handleRatingChange}
             type="radio"
             name="rating"
             value="1"
-            // checked={selectedRating === 1}
           />
           1 Star and above
         </label>
