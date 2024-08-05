@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getSelctedPrice } from "../../features/filterSlice";
+import { getSelectedPrice } from "../../features/filterSlice";
 import { useDispatch } from "react-redux";
 const PriceFilter = () => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const PriceFilter = () => {
     setPrice(e.target.value);
   };
   useEffect(() => {
-    dispatch(getSelctedPrice(price));
+    dispatch(getSelectedPrice(price));
   }, [price]);
   return (
     <>
@@ -17,7 +17,7 @@ const PriceFilter = () => {
         <input
           type="range"
           className="form-range"
-          min="1000"
+          min="500"
           max="2000"
           step="100"
           id="price"
