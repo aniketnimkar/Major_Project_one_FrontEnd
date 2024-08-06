@@ -24,9 +24,9 @@ const CategoryFilter = ({ urlParam }) => {
     } else if (urlParam === "female") {
       setCategory((prevCategory) => [...prevCategory, "female"]);
       dispatch(fetchFemaleProducts("female"));
-    } else if (urlParam === "Kids") {
+    } else if (urlParam === "kids") {
       setCategory((prevCategory) => [...prevCategory, "kids"]);
-      dispatch(fetchKidsProducts("Kids"));
+      dispatch(fetchKidsProducts("kids"));
     } else if (urlParam === "couple") {
       setCategory((prevCategory) => [...prevCategory, "couple"]);
       dispatch(fetchCoupleProducts("couple"));

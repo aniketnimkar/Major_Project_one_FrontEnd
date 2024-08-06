@@ -1,6 +1,34 @@
 import { NavLink } from "react-router-dom";
+import CategoryFilter from "./filterSection/CategoryFilter";
+import { useDispatch } from "react-redux";
+import {
+  emptyCoupleArray,
+  emptyKidsArray,
+  emptyMenArray,
+  emptyWomenArray,
+} from "../features/filterSlice";
 
 const HeroSection = () => {
+  const dispatch = useDispatch();
+  const CategoryHandler = (e) => {
+    if (e.target.id === "male") {
+      dispatch(emptyWomenArray([]));
+      dispatch(emptyKidsArray([]));
+      dispatch(emptyCoupleArray([]));
+    } else if (e.target.id === "female") {
+      dispatch(emptyKidsArray([]));
+      dispatch(emptyMenArray([]));
+      dispatch(emptyCoupleArray([]));
+    } else if (e.target.id === "kids") {
+      dispatch(emptyMenArray([]));
+      dispatch(emptyWomenArray([]));
+      dispatch(emptyCoupleArray([]));
+    } else if (e.target.id === "couple") {
+      dispatch(emptyMenArray([]));
+      dispatch(emptyWomenArray([]));
+      dispatch(emptyKidsArray([]));
+    }
+  };
   return (
     //<NavLink className="nav-link" to="/">Shop.com</NavLink>
     <>
@@ -12,6 +40,8 @@ const HeroSection = () => {
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Male\nCollection"
                 alt="male Cllection"
+                id="male"
+                onClick={CategoryHandler}
               />
             </NavLink>
           </div>
@@ -21,6 +51,8 @@ const HeroSection = () => {
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Women\nCollection"
                 alt="female Collection"
+                id="female"
+                onClick={CategoryHandler}
               />
             </NavLink>
           </div>
@@ -30,6 +62,8 @@ const HeroSection = () => {
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Kids\nCollection"
                 alt="kids Collection"
+                id="kids"
+                onClick={CategoryHandler}
               />
             </NavLink>
           </div>
@@ -39,6 +73,8 @@ const HeroSection = () => {
                 className="rounded img-fluid"
                 src="https://placehold.co/300x200?text=Couple\nCollection"
                 alt="Couple Collection"
+                id="couple"
+                onClick={CategoryHandler}
               />
             </NavLink>
           </div>

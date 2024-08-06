@@ -60,33 +60,7 @@ const ProductListing = () => {
         </section>
         {/* This section is for PRODUCT Listing */}
         <section className="col-md-9">
-          {/* <div class="container py-5"> */}
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
-                <img
-                  src="https://images.unsplash.com/photo-1588099768523-f4e6a5679d88?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHwxMTM4MTU1NXx8ZW58MHx8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
-                  class="card-img-top rounded-top"
-                  alt="Nike Airmax v2"
-                  style={{ height: "200px", objectFit: "cover" }}
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Nike Airmax v2</h5>
-                  <p class="card-text text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Excepturi, debitis?
-                  </p>
-                  <button type="button" class="btn btn-dark w-100">
-                    Add to Cart
-                  </button>
-                  <button type="button" class="btn btn-dark w-100 mt-1">
-                    Add to Wishlist
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* </div> */}
+          <CardComponent finalProductsToView={finalProductsToView} />
         </section>
       </section>
     </>

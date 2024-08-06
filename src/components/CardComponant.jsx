@@ -1,30 +1,47 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const CardComponent = ({ product }) => {
+const CardComponent = ({ finalProductsToView }) => {
+  console.log(finalProductsToView);
   return (
-    <div className="card" style={{ width: "18rem", height:"38rem", position: "relative" }}>
-      <div>
-        <img
-          src={product.productImageURL}
-          className="card-img-top"
-          alt={product.productName}
-          style={{ width: 287, height: 350 }}
-        />
-      </div>
-      <div className="card-body">
-        <p className="card-text text-center">{product.productName}</p>
-        <p className="card-text text-center">RS. {product.productPrice}</p>
-        <p className="card-text text-center">Rating: {product.productRating}</p>
-        <div className="mb-2">
-          <button className="btn btn-primary w-100">
-            Add to Cart
-          </button>
-        </div>
-        <div>
-          <button className="btn btn-primary w-100">
-            Add to Wishlist
-          </button>
-        </div>
+    <div class="container py-5">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        {finalProductsToView.map((product) => (
+          <div class="col">
+            <div class="card h-100 border-0 shadow-sm">
+              <Link>
+                <img
+                  src={product.productImageURL}
+                  class="card-img-top rounded-top"
+                  alt="Nike Airmax v2"
+                  style={{
+                    height: "350px",
+                    objectFit: "cover",
+                  }}
+                />
+              </Link>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <Link
+                    to=""
+                    className="card-title"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {product.productName}
+                  </Link>
+                </h5>
+
+                <p class="card-text text-muted">Rs. {product.productPrice}</p>
+                <button type="button" class="btn btn-dark w-100">
+                  Add to Cart
+                </button>
+                <button type="button" class="btn btn-dark w-100 mt-1">
+                  Add to Wishlist
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
