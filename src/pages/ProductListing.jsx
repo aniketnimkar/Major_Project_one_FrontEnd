@@ -22,7 +22,7 @@ const ProductListing = () => {
   const coupleProducts = useSelector((state) => state.coupleProducts);
   // const allProducts = useSelector((state) => state.products);
   const selectedPrice = useSelector((state) => state.selectedPrice);
-  console.log(selectedPrice);
+  // console.log(selectedPrice);
   const selectedRating = useSelector((state) => state.selectedRating);
   const selectedSort = useSelector((state) => state.selectedSort);
   const paramsObject = useParams();
@@ -49,7 +49,7 @@ const ProductListing = () => {
       ? filteredProducts.sort((a, b) => b.productPrice - a.productPrice)
       : filteredProducts;
 
-  console.log("This is filtered data", finalProductsToView);
+  // console.log("This is filtered data", finalProductsToView);
   return (
     <>
       <Header />

@@ -16,8 +16,10 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <NavLink className="nav-link" to="/">Shop.com</NavLink>
-        {/* className="navbar-brand" >Shop.com */}
+          <NavLink className="nav-link" to="/">
+            Shop.com
+          </NavLink>
+          {/* className="navbar-brand" >Shop.com */}
           <div className="d-flex justify-content-center w-100">
             <form className="d-flex" role="search">
               <input
@@ -44,9 +46,9 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink className="nav-link" to={"/cart"}>
                   Cart
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

@@ -1,6 +1,16 @@
 import { createSlice, current, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+export const fetchProductDetils = createAsyncThunk(
+  "products/fetchProductDetails",
+  async (productId) => {
+    const response = await axios.get(
+      `http://localhost:3000/productDetails/${productId}`
+    );
+    console.log(response.data);
+    return response.data.product;
+  }
+);
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (category) => {
@@ -57,13 +67,17 @@ export const fetchCoupleProducts = createAsyncThunk(
 );
 
 const initialState = {
+  ProductDetail: {},
   products: [],
   maleProducts: [],
   femaleProducts: [],
   kidsProducts: [],
   coupleProducts: [],
   filteredProducts: null,
-  cart: [],
+  cart: {
+    cartArray: [],
+    cartQuantity: null,
+  },
   wishList: [],
   status: "idle",
   error: null,
@@ -89,7 +103,7 @@ export const filterSlice = createSlice({
     },
     getSelectedSort: (state, action) => {
       state.selectedSort = action.payload;
-      console.log(current(state));
+      // console.log(current(state));
     },
     emptyMenArray: (state, action) => {
       state.maleProducts = [];
@@ -103,18 +117,55 @@ export const filterSlice = createSlice({
     emptyCoupleArray: (state, action) => {
       state.coupleProducts = [];
     },
+    addToCart: (state, action) => {
+      // state.cart.cartArray.push(action.payload);
+      const itemPresent = state.cart.cartArray.find(
+        (item) => item._id === action.payload._id
+      );
+      if (itemPresent) {
+        itemPresent.quantity++;
+      } else {
+        state.cart.cartArray.push(action.payload);
+      }
+    },
+    removeFromCart: (state, action) => {
+      const removeFromCart = state.cart.cartArray.filter(
+        (item) => item._id !== action.payload
+      );
+      state.cart.cartArray = removeFromCart;
+    },
+    incrementQuantity: (state, action) => {
+      const itemPresent = state.cart.cartArray.find(
+        (item) => item._id === action.payload
+      );
+
+      itemPresent.quantity++;
+    },
+    decrementQuantity: (state, action) => {
+      const itemPresent = state.cart.cartArray.find(
+        (item) => item._id === action.payload
+      );
+      if (itemPresent.quantity === 1) {
+        const removeFromCart = state.cart.cartArray.filter(
+          (item) => item._id !== action.payload
+        );
+        state.cart.cartArray = removeFromCart;
+      } else {
+        itemPresent.quantity--;
+      }
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
+    builder.addCase(fetchProductDetils.pending, (state) => {
       state.status = "loading";
     });
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+    builder.addCase(fetchProductDetils.fulfilled, (state, action) => {
       state.status = "success";
-      state.products = action.payload;
+      state.ProductDetail = action.payload;
     });
-    builder.addCase(fetchProducts.rejected, (state, action) => {
+    builder.addCase(fetchProductDetils.rejected, (state, action) => {
       state.status = "error";
-      console.log(action);
+      // console.log(action);
     });
 
     builder.addCase(fetchMaleProducts.pending, (state) => {
@@ -131,7 +182,7 @@ export const filterSlice = createSlice({
     });
     builder.addCase(fetchMaleProducts.rejected, (state, action) => {
       state.status = "error";
-      console.log(action);
+      // console.log(action);
     });
 
     builder.addCase(fetchFemaleProducts.pending, (state) => {
@@ -148,7 +199,7 @@ export const filterSlice = createSlice({
     });
     builder.addCase(fetchFemaleProducts.rejected, (state, action) => {
       state.status = "error";
-      console.log(action);
+      // console.log(action);
     });
 
     builder.addCase(fetchKidsProducts.pending, (state) => {
@@ -165,7 +216,7 @@ export const filterSlice = createSlice({
     });
     builder.addCase(fetchKidsProducts.rejected, (state, action) => {
       state.status = "error";
-      console.log(action);
+      // console.log(action);
     });
 
     builder.addCase(fetchCoupleProducts.pending, (state) => {
@@ -182,7 +233,7 @@ export const filterSlice = createSlice({
     });
     builder.addCase(fetchCoupleProducts.rejected, (state, action) => {
       state.status = "error";
-      console.log(action);
+      // console.log(action);
     });
   },
 });
@@ -196,6 +247,10 @@ export const {
   emptyWomenArray,
   emptyKidsArray,
   emptyCoupleArray,
+  addToCart,
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;
