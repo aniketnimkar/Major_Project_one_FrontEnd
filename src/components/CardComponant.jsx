@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { addToCart } from "../features/filterSlice";
+import { addToCart, addToWishlist } from "../features/filterSlice";
 import { useDispatch } from "react-redux";
 const CardComponent = ({ finalProductsToView }) => {
   const dispatch = useDispatch();
   const handleAddtoCart = (product) => {
     //dispatch action to add product into cart
     dispatch(addToCart({ ...product, quantity: 1 }));
+  };
+
+  const handleAddtoWishList = (product) => {
+    //dispatch action to add product into WishList
+    dispatch(addToWishlist(product));
   };
 
   return (
@@ -45,7 +50,11 @@ const CardComponent = ({ finalProductsToView }) => {
                 >
                   Add to Cart
                 </button>
-                <button type="button" class="btn btn-dark w-100 mt-1">
+                <button
+                  type="button"
+                  class="btn btn-dark w-100 mt-1"
+                  onClick={() => handleAddtoWishList(product)}
+                >
                   Add to Wishlist
                 </button>
               </div>

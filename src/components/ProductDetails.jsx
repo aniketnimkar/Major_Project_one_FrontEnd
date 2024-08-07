@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProductDetils } from "../features/filterSlice";
+import {
+  fetchProductDetils,
+  addToWishlist,
+  addToCart,
+} from "../features/filterSlice";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -9,6 +13,13 @@ const ProductDetails = () => {
 
   const product = useSelector((state) => state.ProductDetail);
   // console.log(product);
+
+  const handleAddtoCart = (product) => {
+    dispatch(addToCart({ ...product, quantity: 1 }));
+  };
+  const handleAddtoWishlist = () => {
+    dispatch(addToWishlist(product));
+  };
 
   useEffect(() => {
     dispatch(fetchProductDetils(paramsObject.id));
@@ -27,7 +38,7 @@ const ProductDetails = () => {
                     margin: "auto",
                   }}
                   className="rounded-4 fit"
-                  src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp"
+                  src={product.productImageURL}
                   alt="Main product"
                 />
               </div>
@@ -98,16 +109,16 @@ const ProductDetails = () => {
 
                 <div className="row">
                   <dt className="col-3">Type:</dt>
-                  <dd className="col-9">Regular</dd>
+                  <dd className="col-9">{product.category}</dd>
 
-                  <dt className="col-3">Color</dt>
-                  <dd className="col-9">Brown</dd>
+                  <dt className="col-3">Gender:</dt>
+                  <dd className="col-9">{product.genderType}</dd>
 
                   <dt className="col-3">Material</dt>
                   <dd className="col-9">Cotton, Jeans</dd>
 
-                  <dt className="col-3">Brand</dt>
-                  <dd className="col-9">Reebook</dd>
+                  {/* <dt className="col-3">Brand</dt>
+                  <dd className="col-9">Reebook</dd> */}
                 </div>
 
                 <hr />
@@ -156,20 +167,19 @@ const ProductDetails = () => {
                     </div>
                   </div>
                 </div> */}
-                <a href="#" className="btn btn-warning shadow-0">
-                  {" "}
-                  Buy now{" "}
-                </a>
-                <a href="#" className="btn btn-primary shadow-0">
-                  <i className="me-1 fa fa-shopping-basket" to={"/cart"}></i>{" "}
-                  Add to cart
-                </a>
-                <a
-                  href="#"
-                  className="btn btn-light border border-secondary py-2 icon-hover px-3"
+
+                <button
+                  onClick={() => handleAddtoCart(product)}
+                  className="btn btn-dark shadow-0"
                 >
-                  <i className="me-1 fa fa-heart fa-lg"></i> Save
-                </a>
+                  <i className="me-1 fa fa-shopping-basket"></i> Add to cart
+                </button>
+                <button
+                  onClick={() => handleAddtoWishlist(product)}
+                  className="btn btn-dark shadow-0 ms-4"
+                >
+                  <i className="me-1 fa fa-shopping-basket"></i> Add to Wishlist
+                </button>
               </div>
             </main>
           </div>

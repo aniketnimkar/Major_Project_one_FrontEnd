@@ -4,6 +4,7 @@ import {
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
+  addToWishlist,
 } from "../features/filterSlice";
 
 const Cart = () => {
@@ -19,6 +20,10 @@ const Cart = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  const handleAddToWishlist = (product) => {
+    dispatch(addToWishlist({ ...product, quantity: 1 }));
   };
 
   const cartTotalPrice = cart.reduce(
@@ -113,6 +118,7 @@ const Cart = () => {
                               <button
                                 className="btn btn-dark ms-3"
                                 style={{ width: "158px" }}
+                                onClick={() => handleAddToWishlist(product)}
                               >
                                 Move to Wishlist
                               </button>

@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { searchProduct } from "../features/filterSlice";
 const Header = () => {
+  const dispatch = useDispatch();
+  const searchHandler = (e) => {
+    dispatch(searchProduct(e.target.value));
+  };
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -27,6 +32,7 @@ const Header = () => {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={searchHandler}
               />
               {/* <button className="btn btn-outline-success" type="submit">
                 Search
@@ -41,9 +47,9 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink className="nav-link" to={"/wishList"}>
                   Wishlist
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to={"/cart"}>

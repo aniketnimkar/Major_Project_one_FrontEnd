@@ -25,6 +25,7 @@ const ProductListing = () => {
   // console.log(selectedPrice);
   const selectedRating = useSelector((state) => state.selectedRating);
   const selectedSort = useSelector((state) => state.selectedSort);
+  const searchBoxValue = useSelector((state) => state.searchKeyword);
   const paramsObject = useParams();
   // console.log(paramsObject.category);
 
@@ -50,6 +51,11 @@ const ProductListing = () => {
       : filteredProducts;
 
   // console.log("This is filtered data", finalProductsToView);
+
+  //search Box function
+  const finalProductView = finalProductsToView.filter((product) =>
+    product.productName.toLowerCase().includes(searchBoxValue.toLowerCase())
+  );
   return (
     <>
       <Header />
@@ -60,7 +66,7 @@ const ProductListing = () => {
         </section>
         {/* This section is for PRODUCT Listing */}
         <section className="col-md-9">
-          <CardComponent finalProductsToView={finalProductsToView} />
+          <CardComponent finalProductsToView={finalProductView} />
         </section>
       </section>
     </>
