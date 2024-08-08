@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromWishList } from "../features/filterSlice";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 const WishList = () => {
   const dispatch = useDispatch();
   const wishList = useSelector((state) => state.wishList);
@@ -8,13 +10,16 @@ const WishList = () => {
   const handleAddtoCart = (product) => {
     //dispatch action to add product into cart
     dispatch(addToCart({ ...product, quantity: 1 }));
+    toast.success("Product added to cart");
   };
 
   const handleRemoveFormWishlist = (id) => {
     dispatch(removeFromWishList(id));
+    toast.warning("Product remove from Wishlist");
   };
   return (
     <>
+      <ToastContainer theme="dark" autoClose={1000} />
       <h1 className="text-center">This is a WishList Page</h1>
       <div class="container py-5">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
