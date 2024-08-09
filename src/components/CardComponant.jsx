@@ -21,11 +21,11 @@ const CardComponent = ({ finalProductsToView }) => {
   return (
     <>
       <ToastContainer theme="dark" autoClose={1000} />
-      <div class="container py-5">
+      <div class="container py-5 mt-5">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
           {finalProductsToView.map((product) => (
             <div class="col">
-              <div class="card h-100 border-0 shadow-sm">
+              <div class="card h-100 border-0 shadow">
                 <Link to={`/productDetails/${product._id}`}>
                   <img
                     src={product.productImageURL}
@@ -58,7 +58,7 @@ const CardComponent = ({ finalProductsToView }) => {
                   </button>
                   <button
                     type="button"
-                    class="btn btn-dark w-100 mt-1"
+                    class="btn btn-outline-dark w-100 mt-1"
                     onClick={() => handleAddtoWishList(product)}
                   >
                     Add to Wishlist

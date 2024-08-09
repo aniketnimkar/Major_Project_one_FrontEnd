@@ -12,8 +12,8 @@ const PriceFilter = () => {
   }, [price]);
   return (
     <>
-      <section>
-        <h5>Filter</h5>
+      <section className="">
+        <h5>Price</h5>
         <input
           type="range"
           className="form-range"

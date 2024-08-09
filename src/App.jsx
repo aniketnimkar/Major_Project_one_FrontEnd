@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import FooterCards from "./components/FooterCards";
 import ProductListing from "./pages/ProductListing";
@@ -11,6 +12,7 @@ export default function App() {
       <Header />
       <HeroSection />
       <FooterCards />
+      <Footer />
       {/* <ProductListing/> */}
     </main>
   );

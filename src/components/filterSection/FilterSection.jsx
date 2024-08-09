@@ -6,7 +6,7 @@ import SortFilter from "./SortFilter";
 const FilterSection = ({ urlParam }) => {
   const handleClearFilter = () => {};
   return (
-    <div>
+    <div className="filterContainer ps-3">
       <h5>Filters</h5> <span>clear</span>
       <PriceFilter />
       <CategoryFilter urlParam={urlParam} />
