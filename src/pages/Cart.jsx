@@ -7,26 +7,34 @@ import {
   incrementQuantity,
   decrementQuantity,
   addToWishlist,
+  putIncreaseQuantity,
+  putDecreaseQuantity,
+  deleteProductFromCart,
+  PostProductInWishlist,
 } from "../features/filterSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartArray);
 
-  const increaseQuantityhandler = (id) => {
+  const increaseQuantityhandler = (id, product) => {
     dispatch(incrementQuantity(id));
+    dispatch(putIncreaseQuantity(product));
   };
-  const decreaseQuantityhandler = (id) => {
+  const decreaseQuantityhandler = (id, product) => {
     dispatch(decrementQuantity(id));
+    dispatch(putDecreaseQuantity(product));
   };
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+    dispatch(deleteProductFromCart(id));
     toast.warning("Product remove from Cart");
   };
 
   const handleAddToWishlist = (product) => {
     dispatch(addToWishlist({ ...product, quantity: 1 }));
+    dispatch(PostProductInWishlist(product));
     toast.success("Product move to Wishlist");
   };
 
@@ -94,7 +102,10 @@ const Cart = () => {
                                   className="btn btn-light btn-sm"
                                   onClick={() =>
                                     dispatch(
-                                      decreaseQuantityhandler(product._id)
+                                      decreaseQuantityhandler(
+                                        product._id,
+                                        product
+                                      )
                                     )
                                   }
                                 >
@@ -107,7 +118,10 @@ const Cart = () => {
                                   type="button"
                                   className="btn btn-light btn-sm"
                                   onClick={() =>
-                                    increaseQuantityhandler(product._id)
+                                    increaseQuantityhandler(
+                                      product._id,
+                                      product
+                                    )
                                   }
                                 >
                                   +

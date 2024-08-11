@@ -1,8 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart, removeFromWishList } from "../features/filterSlice";
+import {
+  addToCart,
+  removeFromWishList,
+  deleteProductFromWishlist,
+} from "../features/filterSlice";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
 const WishList = () => {
   const dispatch = useDispatch();
   const wishList = useSelector((state) => state.wishList);
@@ -15,6 +20,7 @@ const WishList = () => {
 
   const handleRemoveFormWishlist = (id) => {
     dispatch(removeFromWishList(id));
+    dispatch(deleteProductFromWishlist(id));
     toast.warning("Product remove from Wishlist");
   };
   return (
