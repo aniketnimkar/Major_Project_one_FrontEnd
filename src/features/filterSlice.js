@@ -163,6 +163,8 @@ const initialState = {
   selectedPrice: null,
   selectedSort: null,
   searchKeyword: "",
+  gotoCart: {},
+  addresses: [],
 };
 
 export const filterSlice = createSlice({
@@ -252,6 +254,32 @@ export const filterSlice = createSlice({
 
     searchProduct: (state, action) => {
       state.searchKeyword = action.payload;
+    },
+
+    gotoCartToggle: (state, action) => {
+      state.gotoCart = { ...state.gotoCart, ...action.payload };
+    },
+
+    addAddresses: (state, action) => {
+      state.addresses = [...state.addresses, action.payload];
+    },
+    updateAddress: (state, action) => {
+      const addressIndex = state.addresses.findIndex(
+        (add) => add.id === action.payload.id
+      );
+
+      if (addressIndex !== -1) {
+        // Update the address at the found index with the new data
+        state.addresses[addressIndex] = {
+          ...state.addresses[addressIndex],
+          ...action.payload,
+        };
+      }
+    },
+    removeAddress: (state, action) => {
+      state.addresses = state.addresses.filter(
+        (add) => add.id !== action.payload
+      );
     },
   },
   extraReducers: (builder) => {
@@ -421,6 +449,10 @@ export const {
   addToWishlist,
   removeFromWishList,
   searchProduct,
+  gotoCartToggle,
+  addAddresses,
+  updateAddress,
+  removeAddress,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

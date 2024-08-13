@@ -5,6 +5,7 @@ import {
   addToWishlist,
   PostProductInCart,
   PostProductInWishlist,
+  gotoCartToggle,
 } from "../features/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,17 +15,19 @@ const CardComponent = ({ finalProductsToView }) => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [disableButtons, setDisableButtons] = useState({});
   const dispatch = useDispatch();
+  const gotoCart = useSelector((state) => state.gotoCart);
 
   const handleAddtoCart = (product) => {
     //dispatch action to add product into cart
     dispatch(addToCart({ ...product, quantity: 1 }));
     dispatch(PostProductInCart({ ...product, quantity: 1 }));
     toast.success("Product added to cart");
-    setDisableButtons((prevState) => ({
-      ...prevState,
-      [product._id]: true,
-    }));
+    // setDisableButtons((prevState) => ({
+    //   ...prevState,
+    //   [product._id]: true,
+    // }));
     // setIsDisabled(!isDisabled);
+    dispatch(gotoCartToggle({ [product._id]: true }));
   };
 
   const handleAddtoWishList = (product) => {
@@ -67,15 +70,19 @@ const CardComponent = ({ finalProductsToView }) => {
                   <p className="card-text text-muted">
                     Rs. {product.productPrice}
                   </p>
-                  <button
-                    onClick={() => handleAddtoCart(product)}
-                    type="button"
-                    className="btn btn-dark w-100"
-                    // disabled={isDisabled}
-                    disabled={disableButtons[product._id] || false}
-                  >
-                    Add to Cart
-                  </button>
+                  {gotoCart[product._id] ? (
+                    <Link className="btn btn-dark w-100" to="/cart">
+                      Go to Cart
+                    </Link>
+                  ) : (
+                    <Link
+                      onClick={() => handleAddtoCart(product)}
+                      type="button"
+                      className="btn btn-dark w-100"
+                    >
+                      Add to Cart
+                    </Link>
+                  )}
                   <button
                     type="button"
                     className="btn btn-outline-dark w-100 mt-1"

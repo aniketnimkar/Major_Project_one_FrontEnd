@@ -11,6 +11,7 @@ import {
   putDecreaseQuantity,
   deleteProductFromCart,
   PostProductInWishlist,
+  gotoCartToggle,
 } from "../features/filterSlice";
 
 const Cart = () => {
@@ -29,6 +30,7 @@ const Cart = () => {
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
     dispatch(deleteProductFromCart(id));
+    dispatch(gotoCartToggle({ [id]: false }));
     toast.warning("Product remove from Cart");
   };
 
