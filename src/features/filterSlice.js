@@ -144,6 +144,44 @@ export const deleteProductFromWishlist = createAsyncThunk(
   }
 );
 
+//API request to handel the addresses
+export const addAddress = createAsyncThunk(
+  "address/addAddress",
+  async (address) => {
+    const response = await axios.post(
+      `http://localhost:3000/addresses/addAddress`,
+      address,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+export const updatedAddress = createAsyncThunk(
+  "address/updateAddress",
+  async (updatedAddress) => {
+    const response = await axios.put(
+      `http://localhost:3000/addresses/updateAddress/${updatedAddress.id}`,
+      updatedAddress
+    );
+    return response.data;
+  }
+);
+
+export const deleteAddress = createAsyncThunk(
+  "address/updateAddress",
+  async (id) => {
+    const response = await axios.delete(
+      `http://localhost:3000/addresses/deleteAddress/${id}`
+    );
+    return response.data;
+  }
+);
+
 const initialState = {
   ProductDetail: {},
   products: [],

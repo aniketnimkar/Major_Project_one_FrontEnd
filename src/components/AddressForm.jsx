@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateAddress, addAddresses } from "../features/filterSlice";
+import {
+  updateAddress,
+  addAddresses,
+  addAddress,
+  updatedAddress,
+} from "../features/filterSlice";
 import { v4 as uuidv4 } from "uuid";
 
-const AddressForm = ({ address }) => {
+const AddressForm = ({ address, setShowModal }) => {
   const dispatch = useDispatch();
   const [id, setId] = useState(uuidv4());
   const [name, setName] = useState("");
@@ -40,10 +45,31 @@ const AddressForm = ({ address }) => {
       number,
     };
     if (address) {
-      console.log("address updated");
       dispatch(updateAddress(newAddress));
+      dispatch(updatedAddress(newAddress));
+      setShowModal(false);
+      setId(""),
+        setName(""),
+        setHouse(""),
+        setCity(""),
+        setCity(""),
+        setState(""),
+        setCountry(""),
+        setPostalCode(""),
+        setNumber("");
     } else {
       dispatch(addAddresses(newAddress));
+      dispatch(addAddress(newAddress));
+      setShowModal(false);
+      setId(""),
+        setName(""),
+        setHouse(""),
+        setCity(""),
+        setCity(""),
+        setState(""),
+        setCountry(""),
+        setPostalCode(""),
+        setNumber("");
     }
   };
 
