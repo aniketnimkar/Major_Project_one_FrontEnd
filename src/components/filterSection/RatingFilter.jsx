@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getSelectedRating } from "../../features/filterSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 const RatingFilter = () => {
   const dispatch = useDispatch();
-  const [rating, setRating] = useState("");
+  const selectedRating = useSelector((state) => state.selectedRating);
+
   const handleRatingChange = (e) => {
-    setRating(e.target.value);
+    dispatch(getSelectedRating(Number(e.target.value)));
   };
-  useEffect(() => {
-    dispatch(getSelectedRating(rating));
-  }, [rating]);
+
   return (
     <section>
       <h5>RatingFilter</h5>
@@ -17,9 +17,10 @@ const RatingFilter = () => {
         <label className="form-check-label">
           <input
             onChange={handleRatingChange}
+            checked={selectedRating === 4}
             type="radio"
             name="rating"
-            value="4"
+            value={4}
           />
           4 Stars and above
         </label>
@@ -27,9 +28,10 @@ const RatingFilter = () => {
         <label className="form-check-label">
           <input
             onChange={handleRatingChange}
+            checked={selectedRating === 3}
             type="radio"
             name="rating"
-            value="3"
+            value={3}
           />
           3 Stars and above
         </label>
@@ -37,9 +39,10 @@ const RatingFilter = () => {
         <label className="form-check-label">
           <input
             onChange={handleRatingChange}
+            checked={selectedRating === 2}
             type="radio"
             name="rating"
-            value="2"
+            value={2}
           />
           2 Stars and above
         </label>
@@ -47,9 +50,10 @@ const RatingFilter = () => {
         <label className="form-check-label">
           <input
             onChange={handleRatingChange}
+            checked={selectedRating === 1}
             type="radio"
             name="rating"
-            value="1"
+            value={1}
           />
           1 Star and above
         </label>

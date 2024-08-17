@@ -198,7 +198,7 @@ const initialState = {
   status: "idle",
   error: null,
   selectedRating: null,
-  selectedPrice: null,
+  selectedPrice: 1000,
   selectedSort: null,
   searchKeyword: "",
   gotoCart: {},
@@ -209,6 +209,11 @@ export const filterSlice = createSlice({
   name: "filterSlice",
   initialState,
   reducers: {
+    clearFilter: (state, action) => {
+      state.selectedPrice = action.payload.selectedPrice;
+      state.selectedRating = action.payload.selectedRating;
+      state.selectedSort = action.payload.selectedSort;
+    },
     getSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
@@ -472,6 +477,7 @@ export const filterSlice = createSlice({
 });
 
 export const {
+  clearFilter,
   getSelectedCategory,
   getSelectedRating,
   getSelectedPrice,
