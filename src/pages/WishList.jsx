@@ -34,7 +34,7 @@ const WishList = () => {
           {!wishList || wishList.length === 0 ? (
             <div
               className="d-flex justify-content-center align-items-center"
-              style={{ height: "10vh", width: "100%" }}
+              style={{ height: "20vh", width: "100%" }}
             >
               <h1 className="text-center">Your Wishlist is empty.💔</h1>
             </div>
