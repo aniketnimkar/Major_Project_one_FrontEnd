@@ -5,7 +5,7 @@ export const fetchProductDetils = createAsyncThunk(
   "products/fetchProductDetails",
   async (productId) => {
     const response = await axios.get(
-      `http://localhost:3000/productDetails/${productId}`
+      `https://major-project-one-back-end.vercel.app/productDetails/${productId}`
     );
     console.log(response.data);
     return response.data.product;
@@ -15,7 +15,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (category) => {
     const response = await axios.get(
-      `http://localhost:3000/products/category/${category}`
+      `https://major-project-one-back-end.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -26,7 +26,7 @@ export const fetchMaleProducts = createAsyncThunk(
   "products/fetchMaleProducts",
   async (category) => {
     const response = await axios.get(
-      `http://localhost:3000/products/category/${category}`
+      `https://major-project-one-back-end.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -37,7 +37,7 @@ export const fetchFemaleProducts = createAsyncThunk(
   "products/fetchFemaleProducts",
   async (category) => {
     const response = await axios.get(
-      `http://localhost:3000/products/category/${category}`
+      `https://major-project-one-back-end.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -48,7 +48,7 @@ export const fetchKidsProducts = createAsyncThunk(
   "products/fetchKidsProducts",
   async (category) => {
     const response = await axios.get(
-      `http://localhost:3000/products/category/${category}`
+      `https://major-project-one-back-end.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -59,7 +59,7 @@ export const fetchCoupleProducts = createAsyncThunk(
   "products/fetchCoupleProducts",
   async (category) => {
     const response = await axios.get(
-      `http://localhost:3000/products/category/${category}`
+      `https://major-project-one-back-end.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -70,7 +70,7 @@ export const PostProductInCart = createAsyncThunk(
   "products/addToCart",
   async (product) => {
     const response = await axios.post(
-      `http://localhost:3000/products/addToCart`,
+      `https://major-project-one-back-end.vercel.app/products/addToCart`,
       product,
       {
         headers: {
@@ -87,7 +87,7 @@ export const putIncreaseQuantity = createAsyncThunk(
   "product/putIncrease",
   async (product) => {
     const response = await axios.put(
-      `http://localhost:3000/product/updateQuantity/${product._id}`,
+      `https://major-project-one-back-end.vercel.app/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity + 1 }
     );
     return response.data;
@@ -98,7 +98,7 @@ export const putDecreaseQuantity = createAsyncThunk(
   "product/putDecrease",
   async (product) => {
     const response = await axios.put(
-      `http://localhost:3000/product/updateQuantity/${product._id}`,
+      `https://major-project-one-back-end.vercel.app/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity - 1 }
     );
     return response.data;
@@ -110,7 +110,7 @@ export const deleteProductFromCart = createAsyncThunk(
   "product/deleteProduct",
   async (id) => {
     const response = await axios.delete(
-      `http://localhost:3000/product/deleteProduct/${id}`
+      `https://major-project-one-back-end.vercel.app/product/deleteProduct/${id}`
     );
     return response.data;
   }
@@ -120,7 +120,7 @@ export const PostProductInWishlist = createAsyncThunk(
   "products/addToWishlist",
   async (product) => {
     const response = await axios.post(
-      `http://localhost:3000/products/addToWishlist`,
+      `https://major-project-one-back-end.vercel.app/products/addToWishlist`,
       product,
       {
         headers: {
@@ -137,7 +137,7 @@ export const deleteProductFromWishlist = createAsyncThunk(
   "product/deleteWishlistProduct",
   async (id) => {
     const response = await axios.delete(
-      `http://localhost:3000/product/deleteProductWishlist/${id}`
+      `https://major-project-one-back-end.vercel.app/product/deleteProductWishlist/${id}`
     );
 
     return response.data;
@@ -149,7 +149,7 @@ export const addAddress = createAsyncThunk(
   "address/addAddress",
   async (address) => {
     const response = await axios.post(
-      `http://localhost:3000/addresses/addAddress`,
+      `https://major-project-one-back-end.vercel.app/addresses/addAddress`,
       address,
       {
         headers: {
@@ -165,7 +165,7 @@ export const updatedAddress = createAsyncThunk(
   "address/updateAddress",
   async (updatedAddress) => {
     const response = await axios.put(
-      `http://localhost:3000/addresses/updateAddress/${updatedAddress.id}`,
+      `https://major-project-one-back-end.vercel.app/addresses/updateAddress/${updatedAddress.id}`,
       updatedAddress
     );
     return response.data;
@@ -176,7 +176,7 @@ export const deleteAddress = createAsyncThunk(
   "address/updateAddress",
   async (id) => {
     const response = await axios.delete(
-      `http://localhost:3000/addresses/deleteAddress/${id}`
+      `https://major-project-one-back-end.vercel.app/addresses/deleteAddress/${id}`
     );
     return response.data;
   }
