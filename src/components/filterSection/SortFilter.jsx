@@ -21,6 +21,7 @@ const SortFilter = () => {
             name="sorting"
             value="asc"
             checked={selectedSort === "asc"}
+            className="form-check-input"
           />
           Price - Low to High
         </label>
@@ -32,6 +33,7 @@ const SortFilter = () => {
             name="sorting"
             value="desc"
             checked={selectedSort === "desc"}
+            className="form-check-input"
           />
           Price - High to Low
         </label>

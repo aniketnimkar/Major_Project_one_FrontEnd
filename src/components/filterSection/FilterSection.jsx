@@ -18,11 +18,14 @@ const FilterSection = ({ urlParam }) => {
     );
   };
   return (
-    <div className="filterContainer ps-3">
-      <h5>Filters</h5>{" "}
-      <span className="btn btn-dark btn-sm" onClick={handleClearFilter}>
-        Clear
-      </span>
+    <div className="ms-4 mt-5 bg bg-body-tertiary rounded">
+      {/* <div className="filterContainer ps-3"> */}
+      <div className="d-flex justify-content-between">
+        <h5>Filters</h5>{" "}
+        <span className="btn btn-dark btn-sm" onClick={handleClearFilter}>
+          Clear
+        </span>
+      </div>
       <PriceFilter />
       <CategoryFilter urlParam={urlParam} />
       <RatingFilter />

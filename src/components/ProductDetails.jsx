@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Header from "./Header";
 import {
   fetchProductDetils,
   addToWishlist,
@@ -26,7 +27,8 @@ const ProductDetails = () => {
   }, []);
   return (
     <>
-      <section className="py-5">
+      <Header />
+      <section className="py-5 mt-5">
         <div className="container">
           <div className="row gx-5">
             <aside className="col-lg-6">
@@ -42,34 +44,6 @@ const ProductDetails = () => {
                   alt="Main product"
                 />
               </div>
-              {/* Multiple product images Div */}
-              {/* <div className="d-flex justify-content-center mb-3">
-                {[
-                  "big1.webp",
-                  "big2.webp",
-                  "big3.webp",
-                  "big4.webp",
-                  "big.webp",
-                ].map((img, index) => (
-                  <a
-                    key={index}
-                    data-fslightbox="mygalley"
-                    className="border mx-1 rounded-2 item-thumb"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-type="image"
-                    href={https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/${img}}
-                  >
-                    <img
-                      width="60"
-                      height="60"
-                      className="rounded-2"
-                      src={https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/${img}}
-                      alt={Thumbnail ${index + 1}}
-                    />
-                  </a>
-                ))}
-              </div> */}
             </aside>
             <main className="col-lg-6">
               <div className="ps-lg-3">
@@ -101,10 +75,21 @@ const ProductDetails = () => {
                 </div>
 
                 <p>
-                  Modern look and quality demo item is a streetwear-inspired
-                  collection that continues to break away from the conventions
-                  of mainstream fashion. Made in Italy, these black and brown
-                  clothing low-top shirts for men.
+                  We understand that fashion is an expression of individuality,
+                  which is why our collection features a range of colors,
+                  patterns, and textures to suit every personality. Each product
+                  undergoes rigorous quality control to ensure it meets our high
+                  standards, so you can trust that you're investing in something
+                  that not only looks great but will also stand the test of
+                  time.
+                </p>
+                <p>
+                  Discover the difference that attention to detail can make. Our
+                  collection is more than just clothing or accessories—it's a
+                  celebration of craftsmanship, creativity, and the art of
+                  dressing well. Elevate your everyday routine with pieces that
+                  are as functional as they are fashionable, and experience the
+                  confidence that comes from wearing something truly special.
                 </p>
 
                 <div className="row">

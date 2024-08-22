@@ -1,73 +1,60 @@
+import React from "react";
+import insta1 from "../images/instagram-1.jpg";
+import insta2 from "../images/instagram-2.jpg";
+import insta3 from "../images/instagram-3.jpg";
+import insta4 from "../images/instagram-4.jpg";
+import insta5 from "../images/instagram-5.jpg";
+import insta6 from "../images/instagram-6.jpg";
+import "../FooterCards.css"; // Ensure you have this CSS file
+
 const FooterCards = () => {
   return (
-    <div>
-      <section>
-        <div className="container my-4">
+    <>
+      {/* <!-- Instagram Section Begin --> */}
+      <section className="mt-5 mb-5">
+        <div className="container">
           <div className="row">
-            {/* !-- First Card --> */}
-            <div className="col-md-6">
-              <div className="card bg-light mb-4 h-100">
-                <div className="row g-0 h-100">
-                  <div className="col-md-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1584043720379-b56cd9199c94?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      className="img-fluid h-100"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="col-md-8 d-flex flex-column">
-                    <div className="card-body d-flex flex-column justify-content-between">
-                      <div>
-                        <h6 className="card-subtitle mb-2 text-muted">
-                          New Arrivals
-                        </h6>
-                      </div>
-                      <div className="mt-auto">
-                        <h5 className="card-title"><strong>Summer Collection</strong></h5>
-                        <p className="card-text">
-                          Check out our best summer collection to stay cool in
-                          this season.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+            <div className="col-lg-8">
+              <div className="row no-gutters">
+                <div className="col-4">
+                  <img src={insta1} className="img-fluid" alt="Instagram 1" />
+                </div>
+                <div className="col-4">
+                  <img src={insta2} className="img-fluid" alt="Instagram 2" />
+                </div>
+                <div className="col-4">
+                  <img src={insta3} className="img-fluid" alt="Instagram 3" />
+                </div>
+                <div className="col-4">
+                  <img src={insta4} className="img-fluid" alt="Instagram 4" />
+                </div>
+                <div className="col-4">
+                  <img src={insta5} className="img-fluid" alt="Instagram 5" />
+                </div>
+                <div className="col-4">
+                  <img src={insta6} className="img-fluid" alt="Instagram 6" />
                 </div>
               </div>
             </div>
-            {/* <!-- Second Card --> */}
-            <div className="col-md-6">
-              <div className="card bg-light mb-4 h-100">
-                <div className="row g-0 h-100">
-                  <div className="col-md-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1628015081036-0747ec8f077a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      className="img-fluid h-100"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="col-md-8 d-flex flex-column">
-                    <div className="card-body d-flex flex-column justify-content-between">
-                      <div>
-                        <h6 className="card-subtitle mb-2 text-muted">
-                          New Arrivals
-                        </h6>
-                      </div>
-                      <div className="mt-auto">
-                        <h5 className="card-title"><strong>Winter Collection</strong></h5>
-                        <p className="card-text">
-                          Check out our best winter collection to stay warm in
-                          this season.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="col-lg-4 mt-5">
+              <div className="instagram-text">
+                <h2>Instagram</h2>
+                <p>
+                  Share a photo of our product or showcase it in action on
+                  social media using the hashtag #bzz_fashion. We’d love to
+                  feature your post on our profile! Let’s collaborate and grow
+                  together—join our community and be a part of our fashion
+                  journey. We can’t wait to see your unique style and celebrate
+                  it with you!
+                </p>
+                <h3 className="instagram-hgashtag">#Buzz_Fashion</h3>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+      {/* Instagram Section End */}
+    </>
   );
 };
 

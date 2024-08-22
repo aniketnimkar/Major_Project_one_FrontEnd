@@ -14,9 +14,9 @@ const Header = () => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand text-light" href="#">
+          <NavLink className="navbar-brand text-light" to={"/"}>
             ShoppingBuzz
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"

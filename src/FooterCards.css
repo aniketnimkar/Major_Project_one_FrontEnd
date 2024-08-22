@@ -1,0 +1,33 @@
+/* Remove margin and padding from images */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Remove padding and margins between rows and columns */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row.no-gutters > .col,
+.row.no-gutters > [class^="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* Adjust container for the Instagram section */
+.instagram {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.instagram-text {
+  margin-top: 50px;
+}
+.instagram-hgashtag {
+  margin-top: 150px;
+  margin-bottom: 5px;
+  color: rgb(225, 87, 87);
+}

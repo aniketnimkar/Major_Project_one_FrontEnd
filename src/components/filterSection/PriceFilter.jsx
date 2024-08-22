@@ -11,7 +11,7 @@ const PriceFilter = () => {
 
   return (
     <>
-      <section className="">
+      <section className="mt-4 mb-4">
         <h5>Price</h5>
         <input
           type="range"

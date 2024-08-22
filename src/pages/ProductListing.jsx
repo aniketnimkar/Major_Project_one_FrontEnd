@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import CardComponent from "../components/CardComponant";
 import { useEffect, useState } from "react";
 import "./ProductListing.css";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import FilterSection from "../components/filterSection/FilterSection";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -59,13 +59,37 @@ const ProductListing = () => {
   return (
     <>
       <Header />
+
+      <section className="text-center" style={{ marginTop: "70px" }}>
+        <NavLink style={{ color: "black" }} className="linkDecoration" to={"/"}>
+          Home
+        </NavLink>{" "}
+        /{" "}
+        {[
+          maleProducts.length && "Men",
+          femaleProducts.length && "Women",
+          kidsProducts.length && "Kids",
+          coupleProducts.length && "Kids",
+        ]
+          .filter(Boolean)
+          .join(" & ")}
+      </section>
+
+      <section>
+        <h1 className="text-center display-2">Command the Spotlight</h1>
+        <p className="text-center display-5">
+          Explore a diverse range of styles, tailored to fit every personality
+          and lifestyle.
+        </p>
+      </section>
+
       {/* this is for Filter Section */}
       <section className="row">
         <section className="col-md-3">
           <FilterSection urlParam={paramsObject.category} />
         </section>
         {/* This section is for PRODUCT Listing */}
-        <section className="col-md-9">
+        <section className="col-md-9 px-2">
           <CardComponent finalProductsToView={finalProductView} />
         </section>
       </section>

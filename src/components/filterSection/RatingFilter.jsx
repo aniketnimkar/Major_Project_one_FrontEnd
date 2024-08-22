@@ -11,7 +11,7 @@ const RatingFilter = () => {
   };
 
   return (
-    <section>
+    <section className="mt-4 mb-4">
       <h5>RatingFilter</h5>
       <div>
         <label className="form-check-label">
@@ -21,6 +21,7 @@ const RatingFilter = () => {
             type="radio"
             name="rating"
             value={4}
+            className="form-check-input"
           />
           4 Stars and above
         </label>
@@ -32,6 +33,7 @@ const RatingFilter = () => {
             type="radio"
             name="rating"
             value={3}
+            className="form-check-input"
           />
           3 Stars and above
         </label>
@@ -43,6 +45,7 @@ const RatingFilter = () => {
             type="radio"
             name="rating"
             value={2}
+            className="form-check-input"
           />
           2 Stars and above
         </label>
@@ -54,6 +57,7 @@ const RatingFilter = () => {
             type="radio"
             name="rating"
             value={1}
+            className="form-check-input"
           />
           1 Star and above
         </label>

@@ -74,7 +74,7 @@ const CategoryFilter = ({ urlParam }) => {
   };
   // console.log(category);
   return (
-    <section>
+    <section className="mt-4 mb-4">
       <h5> CategoryFilter</h5>
       <label className="form-check-label">
         <input
@@ -82,6 +82,7 @@ const CategoryFilter = ({ urlParam }) => {
           type="checkbox"
           value="male"
           checked={category.includes("male")}
+          className="form-check-input"
         />
         Men Clothing
       </label>
@@ -93,6 +94,7 @@ const CategoryFilter = ({ urlParam }) => {
           type="checkbox"
           value="female"
           checked={category.includes("female")}
+          className="form-check-input"
         />
         Women Clothing
       </label>
@@ -103,6 +105,7 @@ const CategoryFilter = ({ urlParam }) => {
           type="checkbox"
           value="kids"
           checked={category.includes("kids")}
+          className="form-check-input"
         />
         Kids Clothing
       </label>
@@ -114,6 +117,7 @@ const CategoryFilter = ({ urlParam }) => {
           type="checkbox"
           value="couple"
           checked={category.includes("couple")}
+          className="form-check-input"
         />
         Couple Clothing
       </label>
