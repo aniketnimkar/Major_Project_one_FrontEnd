@@ -14,6 +14,7 @@ import image2 from "../images/hero-2.jpg";
 
 const HeroSection = () => {
   const dispatch = useDispatch();
+
   const CategoryHandler = (e) => {
     if (e.target.id === "male") {
       dispatch(emptyWomenArray([]));
@@ -47,7 +48,6 @@ const HeroSection = () => {
   return (
     <>
       {/* HERO IMAGE */}
-
       <section className="hero">
         <Slider {...settings}>
           <div className="position-relative">
@@ -55,15 +55,17 @@ const HeroSection = () => {
               src={image1}
               alt="Summer Collection"
               className="img-fluid w-100"
+              style={{ objectFit: "cover", height: "100vh" }}
             />
-
-            <div className="position-absolute top-50 start-50 translate-middle-x text-center text-lg-start ml-5">
+            <div className="position-absolute top-50 start-0 translate-middle-y text-left p-3 p-md-5">
               <div className="container">
                 <div className="row">
-                  <div className="col-xl-5 col-lg-7 col-md-8">
-                    <h6>Summer Collection</h6>
-                    <h2>Fall - Winter Collections 2030</h2>
-                    <p>
+                  <div className="col-md-8 col-lg-6">
+                    <h6 className="text-uppercase">Summer Collection</h6>
+                    <h2 className="display-5">
+                      Fall - Winter Collections 2030
+                    </h2>
+                    <p className="lead">
                       A specialist label creating luxury essentials. Ethically
                       crafted with an unwavering commitment to exceptional
                       quality.
@@ -78,14 +80,17 @@ const HeroSection = () => {
               src={image2}
               alt="Summer Collection"
               className="img-fluid w-100"
+              style={{ objectFit: "cover", height: "100vh" }}
             />
-            <div className="position-absolute top-50 start-50 translate-middle-x text-center text-lg-start ml-5">
+            <div className="position-absolute top-50 start-0 translate-middle-y text-left p-3 p-md-5">
               <div className="container">
                 <div className="row">
-                  <div className="col-xl-5 col-lg-7 col-md-8">
-                    <h6>Summer Collection</h6>
-                    <h2>Fall - Winter Collections 2030</h2>
-                    <p>
+                  <div className="col-md-8 col-lg-6 ">
+                    <h6 className="text-uppercase">Summer Collection</h6>
+                    <h2 className="display-5">
+                      Fall - Winter Collections 2030
+                    </h2>
+                    <p className="lead">
                       A specialist label creating luxury essentials. Ethically
                       crafted with an unwavering commitment to exceptional
                       quality.
@@ -98,54 +103,75 @@ const HeroSection = () => {
         </Slider>
       </section>
 
-      {/* 4 box */}
-      <div className="container content-center mt-5">
-        <div className="row align-items-center">
-          <div className="col">
-            <NavLink to="/products/category/male" className="image-container">
+      {/* 4 Box Section */}
+      <div className="container mt-5">
+        <div className="row text-center">
+          <div className="col-12 col-sm-6 col-md-3 mb-4">
+            <NavLink
+              to="/products/category/male"
+              className="image-container d-block position-relative"
+            >
               <img
-                className="rounded img-fluid equal-height-img"
+                className="rounded img-fluid"
                 src="https://images.unsplash.com/photo-1512755051947-dea0029e93ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fG1hbGUlMjBmYXNoaW9uJTIwbW9kZWx8ZW58MHx8MHx8fDA%3D"
                 alt="male Collection"
                 id="male"
                 onClick={CategoryHandler}
               />
-              <div className="overlay-text">Male</div>
+              <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                <span className="text-white fw-bold fs-4">Male</span>
+              </div>
             </NavLink>
           </div>
-          <div className="col">
-            <NavLink to="/products/category/female" className="image-container">
+          <div className="col-12 col-sm-6 col-md-3 mb-4">
+            <NavLink
+              to="/products/category/female"
+              className="image-container d-block position-relative"
+            >
               <img
-                className="rounded img-fluid equal-height-img"
+                className="rounded img-fluid"
                 src="https://plus.unsplash.com/premium_photo-1689371957762-b5f8d601933e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="female Collection"
                 id="female"
                 onClick={CategoryHandler}
               />
-              <div className="overlay-text">Female</div>
+              <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                <span className="text-white fw-bold fs-4">Female</span>
+              </div>
             </NavLink>
           </div>
-          <div className="col">
-            <NavLink to="/products/category/kids" className="image-container">
+          <div className="col-12 col-sm-6 col-md-3 mb-4">
+            <NavLink
+              to="/products/category/kids"
+              className="image-container d-block position-relative"
+            >
               <img
-                className="rounded img-fluid equal-height-img"
+                className="rounded img-fluid"
                 src="https://plus.unsplash.com/premium_photo-1697612943610-fc079bab10cf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="kids Collection"
                 id="kids"
                 onClick={CategoryHandler}
               />
-              <div className="overlay-text">Kids</div>
+              <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                <span className="text-white fw-bold fs-4">Kids</span>
+              </div>
             </NavLink>
           </div>
-          <div className="col">
-            <NavLink to="/products/category/couple" className="image-container">
+          <div className="col-12 col-sm-6 col-md-3 mb-4">
+            <NavLink
+              to="/products/category/couple"
+              className="image-container d-block position-relative"
+            >
               <img
-                className="rounded img-fluid equal-height-img"
+                className="rounded img-fluid"
                 src="https://images.unsplash.com/photo-1543899161-d044e847c40f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="couple Collection"
                 id="couple"
                 onClick={CategoryHandler}
               />
-              <div className="overlay-text">Couple</div>
+              <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+                <span className="text-white fw-bold fs-4">Couple</span>
+              </div>
             </NavLink>
           </div>
         </div>
