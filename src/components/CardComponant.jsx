@@ -25,15 +25,16 @@ const CardComponent = ({ finalProductsToView }) => {
   }, [finalProductsToView]);
 
   const handleAddtoCart = (product) => {
-    //dispatch action to add product into cart
+    // Dispatch action to add product into cart
     dispatch(addToCart({ ...product, quantity: 1 }));
     dispatch(PostProductInCart({ ...product, quantity: 1 }));
     toast.success("Product added to cart");
-    // setDisableButtons((prevState) => ({
-    //   ...prevState,
-    //   [product._id]: true,
-    // }));
-    // setIsDisabled(!isDisabled);
+
+    // Disable button after adding product
+    setDisableButtons((prevState) => ({
+      ...prevState,
+      [product._id]: true,
+    }));
     dispatch(gotoCartToggle({ [product._id]: true }));
   };
 
@@ -84,7 +85,7 @@ const CardComponent = ({ finalProductsToView }) => {
                   </div>
                 ))
             : finalProductsToView.map((product) => (
-                <div className="col">
+                <div className="col" key={product._id}>
                   <div className="card h-100 border-0 shadow">
                     <Link to={`/productDetails/${product._id}`}>
                       <img
@@ -116,14 +117,16 @@ const CardComponent = ({ finalProductsToView }) => {
                           Go to Cart
                         </Link>
                       ) : (
-                        <Link
+                        <button
                           onClick={() => handleAddtoCart(product)}
                           type="button"
                           className="btn btn-dark w-100"
+                          disabled={disableButtons[product._id]} // Disable if already added
                         >
                           Add to Cart
-                        </Link>
+                        </button>
                       )}
+
                       <button
                         type="button"
                         className="btn btn-outline-dark w-100 mt-1"
