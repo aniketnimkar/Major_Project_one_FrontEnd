@@ -39,7 +39,7 @@ const ProductDetails = () => {
                     maxHeight: "100vh",
                     margin: "auto",
                   }}
-                  className="rounded-4 fit"
+                  className="rounded-4 fit img-fluid"
                   src={product.productImageURL}
                   alt="Main product"
                 />
@@ -157,13 +157,15 @@ const ProductDetails = () => {
                   onClick={() => handleAddtoCart(product)}
                   className="btn btn-dark shadow-0"
                 >
-                  <i className="me-1 fa fa-shopping-basket"></i> Add to cart
+                  <i className="me-1 fa fa-shopping-basket"></i> Add to cart{" "}
+                  <i class="bi bi-cart3"></i>
                 </button>
                 <button
                   onClick={() => handleAddtoWishlist(product)}
                   className="btn btn-dark shadow-0 ms-4"
                 >
-                  <i className="me-1 fa fa-shopping-basket"></i> Add to Wishlist
+                  <i className="me-1 fa fa-shopping-basket"></i> Add to Wishlist{" "}
+                  <i class="bi bi-heart-fill"></i>
                 </button>
               </div>
             </main>

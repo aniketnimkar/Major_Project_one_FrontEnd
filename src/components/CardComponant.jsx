@@ -90,7 +90,7 @@ const CardComponent = ({ finalProductsToView }) => {
                     <Link to={`/productDetails/${product._id}`}>
                       <img
                         src={product.productImageURL}
-                        className="card-img-top rounded-top"
+                        className="card-img-top rounded-top img-fluid"
                         alt="Nike Airmax v2"
                         style={{
                           height: "350px",
@@ -123,7 +123,7 @@ const CardComponent = ({ finalProductsToView }) => {
                           className="btn btn-dark w-100"
                           disabled={disableButtons[product._id]} // Disable if already added
                         >
-                          Add to Cart
+                          Add to Cart <i class="bi bi-cart3"></i>
                         </button>
                       )}
 
@@ -132,7 +132,7 @@ const CardComponent = ({ finalProductsToView }) => {
                         className="btn btn-outline-dark w-100 mt-1"
                         onClick={() => handleAddtoWishList(product)}
                       >
-                        Add to Wishlist
+                        Add to Wishlist <i class="bi bi-heart-fill"></i>
                       </button>
                     </div>
                   </div>

@@ -84,7 +84,7 @@ const ProductListing = () => {
       </section>
 
       {/* this is for Filter Section */}
-      <section className="row">
+      <section className="row mx-3">
         <section className="col-md-3">
           <FilterSection urlParam={paramsObject.category} />
         </section>

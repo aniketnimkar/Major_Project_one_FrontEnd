@@ -50,6 +50,7 @@ const HeroSection = () => {
       {/* HERO IMAGE */}
       <section className="hero">
         <Slider {...settings}>
+          {/* Slide 1 */}
           <div className="position-relative">
             <img
               src={image1}
@@ -62,7 +63,7 @@ const HeroSection = () => {
                 <div className="row">
                   <div className="col-md-8 col-lg-6">
                     <h6 className="text-uppercase">Summer Collection</h6>
-                    <h2 className="display-5">
+                    <h2 className="display-5 display-md-4 display-lg-3">
                       Fall - Winter Collections 2030
                     </h2>
                     <p className="lead">
@@ -75,6 +76,8 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+
+          {/* Slide 2 */}
           <div className="position-relative">
             <img
               src={image2}
@@ -85,9 +88,9 @@ const HeroSection = () => {
             <div className="position-absolute top-50 start-0 translate-middle-y text-left p-3 p-md-5">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-8 col-lg-6 ">
+                  <div className="col-md-8 col-lg-6">
                     <h6 className="text-uppercase">Summer Collection</h6>
-                    <h2 className="display-5">
+                    <h2 className="display-5 display-md-4 display-lg-3">
                       Fall - Winter Collections 2030
                     </h2>
                     <p className="lead">
