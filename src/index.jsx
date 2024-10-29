@@ -14,35 +14,65 @@ import Cart from "../src/pages/Cart";
 import WishList from "./pages/WishList";
 import Login from "./pages/Login";
 import Address from "./pages/Address";
+import ScrollToTop from "./components/ScrollToTop";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <ScrollToTop>
+        <App />,
+      </ScrollToTop>
+    ),
   },
   {
     path: "/products/category/:category",
-    element: <ProductListing />,
+    element: (
+      <ScrollToTop>
+        <ProductListing />,
+      </ScrollToTop>
+    ),
   },
   {
     path: "/productDetails/:id",
-    element: <ProductDetails />,
+    element: (
+      <ScrollToTop>
+        <ProductDetails />
+      </ScrollToTop>
+    ),
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: (
+      <ScrollToTop>
+        <Cart />
+      </ScrollToTop>
+    ),
   },
   {
     path: "/wishList",
-    element: <WishList />,
+    element: (
+      <ScrollToTop>
+        <WishList />
+      </ScrollToTop>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <ScrollToTop>
+        <Login />
+      </ScrollToTop>
+    ),
   },
   {
     path: "/address",
-    element: <Address />,
+
+    element: (
+      <ScrollToTop>
+        <Address />,
+      </ScrollToTop>
+    ),
   },
 ]);
 
