@@ -56,17 +56,21 @@ const HeroSection = () => {
               src={image1}
               alt="Summer Collection"
               className="img-fluid w-100"
-              style={{ objectFit: "cover", height: "100vh" }}
+              style={{
+                objectFit: "cover",
+                height: "100vh",
+                maxHeight: "600px",
+              }}
             />
             <div className="position-absolute top-50 start-0 translate-middle-y text-left p-3 p-md-5">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-8 col-lg-6">
+                  <div className="col-12 col-md-8 col-lg-6">
                     <h6 className="text-uppercase">Summer Collection</h6>
-                    <h2 className="display-5 display-md-4 display-lg-3">
+                    <h2 className="display-6 display-md-4 display-lg-3">
                       Fall - Winter Collections 2030
                     </h2>
-                    <p className="lead">
+                    <p className="lead d-none d-md-block">
                       A specialist label creating luxury essentials. Ethically
                       crafted with an unwavering commitment to exceptional
                       quality.
@@ -83,17 +87,21 @@ const HeroSection = () => {
               src={image2}
               alt="Summer Collection"
               className="img-fluid w-100"
-              style={{ objectFit: "cover", height: "100vh" }}
+              style={{
+                objectFit: "cover",
+                height: "100vh",
+                maxHeight: "600px",
+              }}
             />
             <div className="position-absolute top-50 start-0 translate-middle-y text-left p-3 p-md-5">
               <div className="container">
                 <div className="row">
-                  <div className="col-md-8 col-lg-6">
+                  <div className="col-12 col-md-8 col-lg-6">
                     <h6 className="text-uppercase">Summer Collection</h6>
-                    <h2 className="display-5 display-md-4 display-lg-3">
+                    <h2 className="display-6 display-md-4 display-lg-3">
                       Fall - Winter Collections 2030
                     </h2>
-                    <p className="lead">
+                    <p className="lead d-none d-md-block">
                       A specialist label creating luxury essentials. Ethically
                       crafted with an unwavering commitment to exceptional
                       quality.
@@ -109,7 +117,7 @@ const HeroSection = () => {
       {/* 4 Box Section */}
       <div className="container mt-5">
         <div className="row text-center">
-          <div className="col-12 col-sm-6 col-md-3 mb-4">
+          <div className="col-6 col-md-3 mb-4">
             <NavLink
               to="/products/category/male"
               className="image-container d-block position-relative"
@@ -122,11 +130,11 @@ const HeroSection = () => {
                 onClick={CategoryHandler}
               />
               <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                <span className="text-white fw-bold fs-4">Male</span>
+                <span className="text-white fw-bold fs-5 fs-md-4">Male</span>
               </div>
             </NavLink>
           </div>
-          <div className="col-12 col-sm-6 col-md-3 mb-4">
+          <div className="col-6 col-md-3 mb-4">
             <NavLink
               to="/products/category/female"
               className="image-container d-block position-relative"
@@ -139,11 +147,11 @@ const HeroSection = () => {
                 onClick={CategoryHandler}
               />
               <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                <span className="text-white fw-bold fs-4">Female</span>
+                <span className="text-white fw-bold fs-5 fs-md-4">Female</span>
               </div>
             </NavLink>
           </div>
-          <div className="col-12 col-sm-6 col-md-3 mb-4">
+          <div className="col-6 col-md-3 mb-4">
             <NavLink
               to="/products/category/kids"
               className="image-container d-block position-relative"
@@ -156,11 +164,11 @@ const HeroSection = () => {
                 onClick={CategoryHandler}
               />
               <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                <span className="text-white fw-bold fs-4">Kids</span>
+                <span className="text-white fw-bold fs-5 fs-md-4">Kids</span>
               </div>
             </NavLink>
           </div>
-          <div className="col-12 col-sm-6 col-md-3 mb-4">
+          <div className="col-6 col-md-3 mb-4">
             <NavLink
               to="/products/category/couple"
               className="image-container d-block position-relative"
@@ -173,7 +181,7 @@ const HeroSection = () => {
                 onClick={CategoryHandler}
               />
               <div className="overlay-text position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                <span className="text-white fw-bold fs-4">Couple</span>
+                <span className="text-white fw-bold fs-5 fs-md-4">Couple</span>
               </div>
             </NavLink>
           </div>
