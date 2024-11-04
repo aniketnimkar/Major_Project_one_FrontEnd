@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <ScrollToTop>
-        <App />,
+        <App />
       </ScrollToTop>
     ),
   },
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
 
     element: (
       <ScrollToTop>
-        <Address />,
+        <Address />
       </ScrollToTop>
     ),
   },
