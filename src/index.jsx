@@ -15,7 +15,7 @@ import WishList from "./pages/WishList";
 import Login from "./pages/Login";
 import Address from "./pages/Address";
 import ScrollToTop from "./components/ScrollToTop";
-// import SignUp from "./pages/SignUp";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -75,15 +75,15 @@ const router = createBrowserRouter([
       </ScrollToTop>
     ),
   },
-  // {
-  //   path: "/signup",
+  {
+    path: "/signup",
 
-  //   element: (
-  //     <ScrollToTop>
-  //       <SignUp />
-  //     </ScrollToTop>
-  //   ),
-  // },
+    element: (
+      <ScrollToTop>
+        <SignUp />
+      </ScrollToTop>
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
