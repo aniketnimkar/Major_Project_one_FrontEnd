@@ -7,19 +7,35 @@ import {
   addToWishlist,
   addToCart,
 } from "../features/filterSlice";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const paramsObject = useParams();
 
   const product = useSelector((state) => state.ProductDetail);
+  const token = useSelector((state) => state.token);
   // console.log(product);
 
   const handleAddtoCart = (product) => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
+    if (!token) {
+      navigate("/login");
+    } else {
+      dispatch(addToCart({ ...product, quantity: 1 }));
+      dispatch(postProductInCart({ ...product, quantity: 1 }));
+      toast.success("Product added to cart");
+      dispatch(gotoCartToggle({ [product._id]: true }));
+    }
   };
-  const handleAddtoWishlist = () => {
-    dispatch(addToWishlist(product));
+  const handleAddtoWishlist = (product) => {
+    if (!token) {
+      navigate("/login");
+    } else {
+      dispatch(addToWishlist(product));
+      dispatch(postProductInWishlist(product));
+      toast.success("Product added to wishlist");
+    }
   };
 
   useEffect(() => {

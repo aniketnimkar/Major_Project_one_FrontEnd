@@ -153,8 +153,8 @@ const Footer = () => {
                   <a href="https://www.visa.co.in/" target="_blank">
                     <img
                       className="img-fluid"
-                      style={{ width: "2rem" }}
-                      src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/visa.svg"
+                      style={{ width: "3rem" }}
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Visa_2021.svg/1200px-Visa_2021.svg.png"
                       alt="Visa"
                     />
                   </a>
@@ -166,8 +166,8 @@ const Footer = () => {
                   >
                     <img
                       className="img-fluid"
-                      style={{ width: "2rem" }}
-                      src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/mastercard.svg"
+                      style={{ width: "3rem" }}
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1158px-Mastercard-logo.svg.png?20210817144358"
                       alt="Mastercard"
                     />
                   </a>
@@ -176,8 +176,8 @@ const Footer = () => {
                   <a href="https://www.paypal.com/in/home" target="_blank">
                     <img
                       className="img-fluid"
-                      style={{ width: "2rem" }}
-                      src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/paypal.svg"
+                      style={{ width: "3rem" }}
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1200px-PayPal.svg.png?20230314142951"
                       alt="Paypal"
                     />
                   </a>

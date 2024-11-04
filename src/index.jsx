@@ -15,7 +15,7 @@ import WishList from "./pages/WishList";
 import Login from "./pages/Login";
 import Address from "./pages/Address";
 import ScrollToTop from "./components/ScrollToTop";
-import Signup from "./pages/Signup";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
 
     element: (
       <ScrollToTop>
-        <Signup />,
+        <SignUp />,
       </ScrollToTop>
     ),
   },
