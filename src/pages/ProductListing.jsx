@@ -69,7 +69,7 @@ const ProductListing = () => {
           maleProducts.length && "Men",
           femaleProducts.length && "Women",
           kidsProducts.length && "Kids",
-          coupleProducts.length && "Kids",
+          coupleProducts.length && "Couple",
         ]
           .filter(Boolean)
           .join(" & ")}
