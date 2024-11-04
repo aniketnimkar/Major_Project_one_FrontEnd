@@ -207,7 +207,7 @@ export const signUpUser = createAsyncThunk(
   "signUp/user",
   async (userDetails) => {
     const response = await axios.post(
-      `https://major-project-one-backend.vercel.app/register`,
+      `https://major-project-one-back-end.vercel.app/register`,
       userDetails,
       {
         headers: {

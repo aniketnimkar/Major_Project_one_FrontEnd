@@ -80,7 +80,7 @@ const router = createBrowserRouter([
 
     element: (
       <ScrollToTop>
-        <SignUp />,
+        <SignUp />
       </ScrollToTop>
     ),
   },
