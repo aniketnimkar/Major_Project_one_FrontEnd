@@ -203,22 +203,22 @@ export const generateToken = createAsyncThunk(
   }
 );
 
-export const signUpUser = createAsyncThunk(
-  "signUp/user",
-  async (userDetails) => {
-    const response = await axios.post(
-      `https://major-project-one-back-end.vercel.app/register`,
-      userDetails,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+// export const signUpUser = createAsyncThunk(
+//   "signUp/user",
+//   async (userDetails) => {
+//     const response = await axios.post(
+//       `https://major-project-one-back-end.vercel.app/register`,
+//       userDetails,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
 
-    return response.data;
-  }
-);
+//     return response.data;
+//   }
+// );
 
 const initialState = {
   token: localStorage.getItem("admin-token") || null,
@@ -530,15 +530,15 @@ export const filterSlice = createSlice({
     builder.addCase(generateToken.rejected, (state, action) => {
       state.error = "error";
     });
-    builder.addCase(signUpUser.pending, (state, action) => {
-      state.status = "Loading";
-    });
-    builder.addCase(signUpUser.fulfilled, (state, action) => {
-      state.status = "Success";
-    });
-    builder.addCase(signUpUser.rejected, (state, action) => {
-      state.error = "error";
-    });
+    // builder.addCase(signUpUser.pending, (state, action) => {
+    //   state.status = "Loading";
+    // });
+    // builder.addCase(signUpUser.fulfilled, (state, action) => {
+    //   state.status = "Success";
+    // });
+    // builder.addCase(signUpUser.rejected, (state, action) => {
+    //   state.error = "error";
+    // });
   },
 });
 
