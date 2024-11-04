@@ -15,6 +15,7 @@ import WishList from "./pages/WishList";
 import Login from "./pages/Login";
 import Address from "./pages/Address";
 import ScrollToTop from "./components/ScrollToTop";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,15 @@ const router = createBrowserRouter([
     element: (
       <ScrollToTop>
         <Address />,
+      </ScrollToTop>
+    ),
+  },
+  {
+    path: "/signup",
+
+    element: (
+      <ScrollToTop>
+        <Signup />,
       </ScrollToTop>
     ),
   },

@@ -42,6 +42,7 @@ const Cart = () => {
   const handleAddToWishlist = (product) => {
     dispatch(addToWishlist({ ...product, quantity: 1 }));
     dispatch(PostProductInWishlist(product));
+    dispatch(removeFromCart(product._id));
     toast.success("Product moved to Wishlist");
   };
 

@@ -139,41 +139,43 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div class="py-4 bg-secondary text-light fw-light">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-start">
-              <p class="mb-md-0">© 2024 ShoppingBuzz. All rights reserved.</p>
+      <div className="py-4 bg-secondary text-light fw-light">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6 text-center text-md-start">
+              <p className="mb-md-0">
+                © 2024 ShoppingBuzz. All rights reserved.
+              </p>
             </div>
-            <div class="col-md-6">
-              <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
-                <li class="list-inline-item">
+            <div className="col-md-6">
+              <ul className="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
+                <li className="list-inline-item">
                   <a href="https://www.visa.co.in/" target="_blank">
                     <img
-                      class="img-fluid"
+                      className="img-fluid"
                       style={{ width: "2rem" }}
                       src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/visa.svg"
                       alt="Visa"
                     />
                   </a>
                 </li>
-                <li class="list-inline-item">
+                <li className="list-inline-item">
                   <a
                     href="https://www.mastercard.co.in/en-in.html"
                     target="_blank"
                   >
                     <img
-                      class="img-fluid"
+                      className="img-fluid"
                       style={{ width: "2rem" }}
                       src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/mastercard.svg"
                       alt="Mastercard"
                     />
                   </a>
                 </li>
-                <li class="list-inline-item">
+                <li className="list-inline-item">
                   <a href="https://www.paypal.com/in/home" target="_blank">
                     <img
-                      class="img-fluid"
+                      className="img-fluid"
                       style={{ width: "2rem" }}
                       src="https://d19m59y37dris4.cloudfront.net/sell/2-0-1/img/paypal.svg"
                       alt="Paypal"
