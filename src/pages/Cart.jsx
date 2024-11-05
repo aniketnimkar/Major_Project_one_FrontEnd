@@ -3,24 +3,29 @@ import { useSelector, useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Header from "../components/Header";
+// import {
+//   addToWishlist,
+//   PostProductInWishlist,
+//   addToWishlist,
+// } from "../features/wishlistSlice";
+import { PostProductInWishlist } from "../features/wishlistSlice";
+import { addToWishlist } from "../features/wishlistSlice";
 import {
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
-  addToWishlist,
+  gotoCartToggle,
+  deleteProductFromCart,
   putIncreaseQuantity,
   putDecreaseQuantity,
-  deleteProductFromCart,
-  PostProductInWishlist,
-  gotoCartToggle,
-} from "../features/filterSlice";
+} from "../features/cartSlice";
 
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cartArray);
+  const cart = useSelector((state) => state.cart.cart.cartArray);
 
   const increaseQuantityHandler = (id, product) => {
     dispatch(incrementQuantity(id));
@@ -95,7 +100,7 @@ const Cart = () => {
                     <ul role="list" className="list-group list-group-flush">
                       {/* Items list to be mapped here */}
                       {cart.map((product) => (
-                        <li className="list-group-item py-6">
+                        <li key={product._id} className="list-group-item py-6">
                           <div className="row">
                             <div className="col-2">
                               <img

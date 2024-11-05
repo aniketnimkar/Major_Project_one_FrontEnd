@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const RatingFilter = () => {
   const dispatch = useDispatch();
-  const selectedRating = useSelector((state) => state.selectedRating);
+  const selectedRating = useSelector((state) => state.filter.selectedRating);
 
   const handleRatingChange = (e) => {
     dispatch(getSelectedRating(Number(e.target.value)));

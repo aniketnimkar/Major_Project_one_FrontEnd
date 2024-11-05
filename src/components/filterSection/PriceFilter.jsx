@@ -3,7 +3,7 @@ import { getSelectedPrice } from "../../features/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
 const PriceFilter = () => {
   const dispatch = useDispatch();
-  const selectedPrice = useSelector((state) => state.selectedPrice);
+  const selectedPrice = useSelector((state) => state.filter.selectedPrice);
   const handlePriceChange = (e) => {
     const newPrice = Number(e.target.value);
     dispatch(getSelectedPrice(newPrice));

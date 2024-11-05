@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { searchProduct } from "../features/filterSlice";
+// import { searchProduct } from "../features/filterSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const wishlist = useSelector((state) => state.wishList);
-  const cart = useSelector((state) => state.cart.cartArray);
+  const wishlist = useSelector((state) => state.wishList.wishList);
+  const cart = useSelector((state) => state.cart.cart.cartArray);
   const searchHandler = (e) => {
     dispatch(searchProduct(e.target.value));
   };

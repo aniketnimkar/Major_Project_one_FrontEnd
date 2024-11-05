@@ -4,7 +4,7 @@ import { getSelectedSort } from "../../features/filterSlice";
 
 const SortFilter = () => {
   const dispatch = useDispatch();
-  const selectedSort = useSelector((state) => state.selectedSort);
+  const selectedSort = useSelector((state) => state.filter.selectedSort);
 
   const handleSortingChange = (e) => {
     dispatch(getSelectedSort(e.target.value));

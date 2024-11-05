@@ -5,7 +5,7 @@ import {
   addAddresses,
   addAddress,
   updatedAddress,
-} from "../features/filterSlice";
+} from "../features/loginRegistrationSlice";
 import { v4 as uuidv4 } from "uuid";
 
 const AddressForm = ({ address, setShowModal }) => {

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   addToCart,
-  addToWishlist,
   PostProductInCart,
-  PostProductInWishlist,
   gotoCartToggle,
-} from "../features/filterSlice";
+} from "../features/cartSlice";
+import {
+  addToWishlist,
+  PostProductInWishlist,
+} from "../features/wishlistSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -18,7 +20,7 @@ const CardComponent = ({ finalProductsToView }) => {
   const [disableButtons, setDisableButtons] = useState({});
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const gotoCart = useSelector((state) => state.gotoCart);
+  const gotoCart = useSelector((state) => state.cart.gotoCart);
 
   useEffect(() => {
     if (finalProductsToView.length > 0) {

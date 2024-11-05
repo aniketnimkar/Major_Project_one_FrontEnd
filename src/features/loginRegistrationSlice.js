@@ -1,0 +1,146 @@
+import { createSlice, current, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+//API request to handel the addresses
+export const addAddress = createAsyncThunk(
+  "address/addAddress",
+  async (address) => {
+    const response = await axios.post(
+      `https://major-project-one-back-end.vercel.app/addresses/addAddress`,
+      address,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+export const updatedAddress = createAsyncThunk(
+  "address/updateAddress",
+  async (updatedAddress) => {
+    const response = await axios.put(
+      `https://major-project-one-back-end.vercel.app/addresses/updateAddress/${updatedAddress.id}`,
+      updatedAddress
+    );
+    return response.data;
+  }
+);
+
+export const deleteAddress = createAsyncThunk(
+  "address/updateAddress",
+  async (id) => {
+    const response = await axios.delete(
+      `https://major-project-one-back-end.vercel.app/addresses/deleteAddress/${id}`
+    );
+    return response.data;
+  }
+);
+
+export const generateToken = createAsyncThunk(
+  "token/getToken",
+  async (userDetails) => {
+    const response = await axios.post(
+      `https://major-project-one-back-end.vercel.app/login`,
+      userDetails,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data;
+  }
+);
+
+export const signUpUser = createAsyncThunk(
+  "signUp/user",
+  async (userDetails) => {
+    const response = await axios.post(
+      `https://major-project-one-back-end.vercel.app/register`,
+      userDetails,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data;
+  }
+);
+
+const initialState = {
+  token: localStorage.getItem("admin-token") || null,
+  addresses: [],
+  status: "idle",
+  error: null,
+};
+
+export const loginRegistrationSlice = createSlice({
+  name: "loginRegistrationSlice",
+  initialState,
+  reducers: {
+    addAddresses: (state, action) => {
+      state.addresses = [...state.addresses, action.payload];
+    },
+    updateAddress: (state, action) => {
+      const addressIndex = state.addresses.findIndex(
+        (add) => add.id === action.payload.id
+      );
+
+      if (addressIndex !== -1) {
+        // Update the address at the found index with the new data
+        state.addresses[addressIndex] = {
+          ...state.addresses[addressIndex],
+          ...action.payload,
+        };
+      }
+    },
+    removeAddress: (state, action) => {
+      state.addresses = state.addresses.filter(
+        (add) => add.id !== action.payload
+      );
+    },
+    removeTokenFromRedux: (state, action) => {
+      state.token = action.payload;
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder.addCase(generateToken.pending, (state, action) => {
+      state.status = "Loading";
+    });
+
+    builder.addCase(generateToken.fulfilled, (state, action) => {
+      state.status = "Success";
+      state.token = action.payload.token;
+      localStorage.setItem("admin-token", action.payload.token);
+    });
+
+    builder.addCase(generateToken.rejected, (state, action) => {
+      state.error = "error";
+    });
+    builder.addCase(signUpUser.pending, (state, action) => {
+      state.status = "Loading";
+    });
+    builder.addCase(signUpUser.fulfilled, (state, action) => {
+      state.status = "Success";
+    });
+    builder.addCase(signUpUser.rejected, (state, action) => {
+      state.error = "error";
+    });
+  },
+});
+
+export const {
+  addAddresses,
+  updateAddress,
+  removeAddress,
+  removeTokenFromRedux,
+} = loginRegistrationSlice.actions;
+
+export default loginRegistrationSlice.reducer;

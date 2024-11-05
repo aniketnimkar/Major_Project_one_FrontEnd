@@ -16,16 +16,16 @@ import {
 
 const ProductListing = () => {
   const dispatch = useDispatch();
-  const maleProducts = useSelector((state) => state.maleProducts);
-  const femaleProducts = useSelector((state) => state.femaleProducts);
-  const kidsProducts = useSelector((state) => state.kidsProducts);
-  const coupleProducts = useSelector((state) => state.coupleProducts);
+  const maleProducts = useSelector((state) => state.filter.maleProducts);
+  const femaleProducts = useSelector((state) => state.filter.femaleProducts);
+  const kidsProducts = useSelector((state) => state.filter.kidsProducts);
+  const coupleProducts = useSelector((state) => state.filter.coupleProducts);
   // const allProducts = useSelector((state) => state.products);
-  const selectedPrice = useSelector((state) => state.selectedPrice);
+  const selectedPrice = useSelector((state) => state.filter.selectedPrice);
   // console.log(selectedPrice);
-  const selectedRating = useSelector((state) => state.selectedRating);
-  const selectedSort = useSelector((state) => state.selectedSort);
-  const searchBoxValue = useSelector((state) => state.searchKeyword);
+  const selectedRating = useSelector((state) => state.filter.selectedRating);
+  const selectedSort = useSelector((state) => state.filter.selectedSort);
+  const searchBoxValue = useSelector((state) => state.filter.searchKeyword);
   const paramsObject = useParams();
   // console.log(paramsObject.category);
 

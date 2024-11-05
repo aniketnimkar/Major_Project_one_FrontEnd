@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
-import {
-  fetchProductDetils,
-  addToWishlist,
-  addToCart,
-} from "../features/filterSlice";
+import { fetchProductDetils } from "../features/filterSlice";
+import { addToWishlist } from "../features/wishlistSlice";
+import { addToCart, PostProductInCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
@@ -14,8 +12,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const paramsObject = useParams();
 
-  const product = useSelector((state) => state.ProductDetail);
-  const token = useSelector((state) => state.token);
+  const product = useSelector((state) => state.filter.ProductDetail);
+  const token = useSelector((state) => state.loginRegistration.token);
   // console.log(product);
 
   const handleAddtoCart = (product) => {
@@ -23,7 +21,7 @@ const ProductDetails = () => {
       navigate("/login");
     } else {
       dispatch(addToCart({ ...product, quantity: 1 }));
-      dispatch(postProductInCart({ ...product, quantity: 1 }));
+      dispatch(PostProductInCart({ ...product, quantity: 1 }));
       toast.success("Product added to cart");
       dispatch(gotoCartToggle({ [product._id]: true }));
     }

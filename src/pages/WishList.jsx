@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  addToCart,
-  removeFromWishList,
-  deleteProductFromWishlist,
-} from "../features/filterSlice";
+import { addToCart } from "../features/cartSlice";
+import { deleteProductFromCart } from "../features/cartSlice";
+import { removeFromWishList } from "../features/wishlistSlice";
+import { deleteProductFromWishlist } from "../features/wishlistSlice";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Header from "../components/Header"; // Adjust the path as per your structure
@@ -12,7 +11,7 @@ import Footer from "../components/Footer";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
-  const wishlist = useSelector((state) => state.wishList);
+  const wishlist = useSelector((state) => state.wishList.wishList);
   // console.log("Error", wishlist);
 
   const handleAddToCart = (product) => {
@@ -23,7 +22,7 @@ const Wishlist = () => {
 
   const handleRemoveFromWishlist = (id) => {
     dispatch(removeFromWishList(id));
-    dispatch(deleteWishlistItem(id));
+    dispatch(deleteProductFromWishlist(id));
     toast.warning("Product removed from wishlist");
   };
 

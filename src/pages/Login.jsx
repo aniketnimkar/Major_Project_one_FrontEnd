@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import Address from "./Address";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
-import { generateToken, removeTokenFromRedux } from "../features/filterSlice";
+import {
+  generateToken,
+  removeTokenFromRedux,
+} from "../features/loginRegistrationSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
-  const error = useSelector((state) => state.error);
+  const token = useSelector((state) => state.loginRegistration.token);
+  const error = useSelector((state) => state.loginRegistration.error);
 
   const [userDetails, setUserDetails] = useState({
     password: "",
