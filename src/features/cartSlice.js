@@ -5,7 +5,7 @@ export const PostProductInCart = createAsyncThunk(
   "products/addToCart",
   async (product) => {
     const response = await axios.post(
-      `https://shoppingbuzz.vercel.app/products/addToCart`,
+      `https://shoppingbuzz-backend.vercel.app/products/addToCart`,
       product,
       {
         headers: {
@@ -23,7 +23,7 @@ export const putIncreaseQuantity = createAsyncThunk(
   "product/putIncrease",
   async (product) => {
     const response = await axios.put(
-      `https://shoppingbuzz.vercel.app/product/updateQuantity/${product._id}`,
+      `https://shoppingbuzz-backend.vercel.app/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity + 1 }
     );
     return response.data;
@@ -34,7 +34,7 @@ export const putDecreaseQuantity = createAsyncThunk(
   "product/putDecrease",
   async (product) => {
     const response = await axios.put(
-      `https://shoppingbuzz.vercel.app/product/updateQuantity/${product._id}`,
+      `https://shoppingbuzz-backend.vercel.app/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity - 1 }
     );
     return response.data;
@@ -45,7 +45,7 @@ export const deleteProductFromCart = createAsyncThunk(
   "product/deleteProduct",
   async (id) => {
     const response = await axios.delete(
-      `https://shoppingbuzz.vercel.app/product/deleteProduct/${id}`
+      `https://shoppingbuzz-backend.vercel.app/product/deleteProduct/${id}`
     );
     return response.data;
   }

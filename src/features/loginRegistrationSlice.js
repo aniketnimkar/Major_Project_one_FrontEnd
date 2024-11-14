@@ -6,7 +6,7 @@ export const addAddress = createAsyncThunk(
   "address/addAddress",
   async (address) => {
     const response = await axios.post(
-      `https://shoppingbuzz.vercel.app/addresses/addAddress`,
+      `https://shoppingbuzz-backend.vercel.app/addresses/addAddress`,
       address,
       {
         headers: {
@@ -22,7 +22,7 @@ export const updatedAddress = createAsyncThunk(
   "address/updateAddress",
   async (updatedAddress) => {
     const response = await axios.put(
-      `https://shoppingbuzz.vercel.app/addresses/updateAddress/${updatedAddress.id}`,
+      `https://shoppingbuzz-backend.vercel.app/addresses/updateAddress/${updatedAddress.id}`,
       updatedAddress
     );
     return response.data;
@@ -33,7 +33,7 @@ export const deleteAddress = createAsyncThunk(
   "address/updateAddress",
   async (id) => {
     const response = await axios.delete(
-      `https://shoppingbuzz.vercel.app/addresses/deleteAddress/${id}`
+      `https://shoppingbuzz-backend.vercel.app/addresses/deleteAddress/${id}`
     );
     return response.data;
   }
@@ -43,7 +43,7 @@ export const generateToken = createAsyncThunk(
   "token/getToken",
   async (userDetails) => {
     const response = await axios.post(
-      `https://shoppingbuzz.vercel.app/login`,
+      `https://shoppingbuzz-backend.vercel.app/login`,
       userDetails,
       {
         headers: {
@@ -60,7 +60,7 @@ export const signUpUser = createAsyncThunk(
   "signUp/user",
   async (userDetails) => {
     const response = await axios.post(
-      `https://shoppingbuzz.vercel.app/register`,
+      `https://shoppingbuzz-backend.vercel.app/register`,
       userDetails,
       {
         headers: {

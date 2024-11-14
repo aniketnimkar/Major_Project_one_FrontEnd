@@ -5,7 +5,7 @@ export const PostProductInWishlist = createAsyncThunk(
   "products/addToWishlist",
   async (product) => {
     const response = await axios.post(
-      `https://shoppingbuzz.vercel.app/products/addToWishlist`,
+      `https://shoppingbuzz-backend.vercel.app/products/addToWishlist`,
       product,
       {
         headers: {
@@ -23,7 +23,7 @@ export const deleteProductFromWishlist = createAsyncThunk(
   "product/deleteWishlistProduct",
   async (id) => {
     const response = await axios.delete(
-      `https://shoppingbuzz.vercel.app/product/deleteProductWishlist/${id}`
+      `https://shoppingbuzz-backend.vercel.app/product/deleteProductWishlist/${id}`
     );
 
     return response.data;
