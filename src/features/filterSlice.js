@@ -6,7 +6,7 @@ export const fetchProductDetils = createAsyncThunk(
   "products/fetchProductDetails",
   async (productId) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/productDetails/${productId}`
+      `https://shoppingbuzz.vercel.app/productDetails/${productId}`
     );
     console.log(response.data);
     return response.data.product;
@@ -16,7 +16,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (category) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/products/category/${category}`
+      `https://shoppingbuzz.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -27,7 +27,7 @@ export const fetchMaleProducts = createAsyncThunk(
   "products/fetchMaleProducts",
   async (category) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/products/category/${category}`
+      `https://shoppingbuzz.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -38,7 +38,7 @@ export const fetchFemaleProducts = createAsyncThunk(
   "products/fetchFemaleProducts",
   async (category) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/products/category/${category}`
+      `https://shoppingbuzz.vercel.app/products/category/${category}`
     );
     console.log(response.data);
     return response.data.products;
@@ -49,7 +49,7 @@ export const fetchKidsProducts = createAsyncThunk(
   "products/fetchKidsProducts",
   async (category) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/products/category/${category}`
+      `https://shoppingbuzz.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
@@ -60,7 +60,7 @@ export const fetchCoupleProducts = createAsyncThunk(
   "products/fetchCoupleProducts",
   async (category) => {
     const response = await axios.get(
-      `https://major-project-one-back-end.vercel.app/products/category/${category}`
+      `https://shoppingbuzz.vercel.app/products/category/${category}`
     );
 
     return response.data.products;
