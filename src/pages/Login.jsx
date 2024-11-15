@@ -28,11 +28,19 @@ const Login = () => {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    dispatch(generateToken(userDetails));
-    setUserDetails({
-      password: "",
-      email: "",
-    });
+    const userType = e.nativeEvent.submitter.name;
+
+    if (userType === "signInUser") {
+      dispatch(generateToken(userDetails));
+      setUserDetails({
+        password: "",
+        email: "",
+      });
+    } else if (userType === "signInGuest") {
+      const guestUser = { email: "aniket@gmail.com", password: "aniket" };
+      dispatch(generateToken(guestUser));
+      setUserDetails(guestUser);
+    }
   };
 
   const logoutHandler = () => {
@@ -79,7 +87,6 @@ const Login = () => {
                   type="text"
                   onChange={changeHandler}
                   value={userDetails.email}
-                  required
                 />
                 <label className="form-label" htmlFor="password">
                   Enter your password *
@@ -91,12 +98,24 @@ const Login = () => {
                   type="password"
                   onChange={changeHandler}
                   value={userDetails.password}
-                  required
                 />
 
                 <div className="d-grid gap-2 mt-3 mb-2">
-                  <button type="submit" className="btn btn-sm btn-dark">
+                  <button
+                    type="submit"
+                    className="btn btn-sm btn-dark"
+                    name="signInUser"
+                  >
                     Sign In
+                  </button>
+                </div>
+                <div className="d-grid gap-2 mt-3 mb-2">
+                  <button
+                    type="submit"
+                    className="btn btn-sm btn-dark"
+                    name="signInGuest"
+                  >
+                    Guest User
                   </button>
                 </div>
                 <p>
