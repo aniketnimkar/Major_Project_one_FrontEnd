@@ -1,11 +1,13 @@
 import { createSlice, current, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const PostProductInCart = createAsyncThunk(
   "products/addToCart",
   async (product) => {
     const response = await axios.post(
-      `https://shoppingbuzz-backend.vercel.app/products/addToCart`,
+      `${API_URL}/products/addToCart`,
       product,
       {
         headers: {
@@ -23,7 +25,7 @@ export const putIncreaseQuantity = createAsyncThunk(
   "product/putIncrease",
   async (product) => {
     const response = await axios.put(
-      `https://shoppingbuzz-backend.vercel.app/product/updateQuantity/${product._id}`,
+      `${API_URL}/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity + 1 }
     );
     return response.data;
@@ -34,7 +36,7 @@ export const putDecreaseQuantity = createAsyncThunk(
   "product/putDecrease",
   async (product) => {
     const response = await axios.put(
-      `https://shoppingbuzz-backend.vercel.app/product/updateQuantity/${product._id}`,
+      `${API_URL}/product/updateQuantity/${product._id}`,
       { ...product, quantity: product.quantity - 1 }
     );
     return response.data;
@@ -45,7 +47,7 @@ export const deleteProductFromCart = createAsyncThunk(
   "product/deleteProduct",
   async (id) => {
     const response = await axios.delete(
-      `https://shoppingbuzz-backend.vercel.app/product/deleteProduct/${id}`
+      `${API_URL}/product/deleteProduct/${id}`
     );
     return response.data;
   }

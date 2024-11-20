@@ -1,11 +1,11 @@
 import { createSlice, current, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export const PostProductInWishlist = createAsyncThunk(
   "products/addToWishlist",
   async (product) => {
     const response = await axios.post(
-      `https://shoppingbuzz-backend.vercel.app/products/addToWishlist`,
+      `${API_URL}/products/addToWishlist`,
       product,
       {
         headers: {
@@ -23,7 +23,7 @@ export const deleteProductFromWishlist = createAsyncThunk(
   "product/deleteWishlistProduct",
   async (id) => {
     const response = await axios.delete(
-      `https://shoppingbuzz-backend.vercel.app/product/deleteProductWishlist/${id}`
+      `${API_URL}/product/deleteProductWishlist/${id}`
     );
 
     return response.data;
